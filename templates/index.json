@@ -176,7 +176,7 @@
     "products": {
       "type": "featured-collection",
       "settings": {
-        "collection": "",
+        "collection": "frontpage",
         "eyebrow": "",
         "heading": "Your Libersens intimacy wardrobe.",
         "product_limit": 8,
