@@ -21,13 +21,13 @@
             {% if product != blank and product.images.size > 0 %}
               {% for image in product.images limit: 6 %}
                 <div class="featured-gallery__slide">
-                  <img src="{{ image | image_url: width: 1300 }}" alt="{{ image.alt | default: product.title | escape }}" loading="lazy" width="1300" height="1300">
+                  <img src="{{ image | image_url: width: 1254, height: 500, crop: 'center' }}" alt="{{ image.alt | default: product.title | escape }}" loading="lazy" width="1254" height="500">
                 </div>
               {% endfor %}
             {% else %}
               {% for placeholder_image in placeholder_images %}
                 <div class="featured-gallery__slide">
-                  <img src="{{ placeholder_image | asset_url }}" alt="Libersens highlighted product placeholder" loading="lazy" width="1254" height="1254">
+                  <img src="{{ placeholder_image | asset_url }}" alt="Libersens highlighted product placeholder" loading="lazy" width="1254" height="500">
                 </div>
               {% endfor %}
             {% endif %}

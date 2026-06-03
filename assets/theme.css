@@ -417,7 +417,8 @@ p {
 
 .hero {
   position: relative;
-  min-height: clamp(620px, 86vh, 820px);
+  min-height: calc(100vh - var(--header-height, 110px));
+  min-height: calc(100svh - var(--header-height, 110px));
   display: grid;
   align-items: end;
   overflow: hidden;
@@ -1775,11 +1776,16 @@ p {
 
 .featured-product {
   background: #fff;
+  padding: 28px 0;
 }
 
 .featured-product__grid {
   grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.78fr);
   align-items: start;
+}
+
+.featured-product__media img {
+  aspect-ratio: 1254 / 500;
 }
 
 .featured-gallery,
