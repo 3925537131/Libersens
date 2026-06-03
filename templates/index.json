@@ -17,7 +17,8 @@
         "text": "",
         "primary_label": "DISCOVER LIBERSENS",
         "primary_link": "/pages/best-sellers",
-        "secondary_label": ""
+        "secondary_label": "",
+        "secondary_link": ""
       }
     },
     "welcome": {
@@ -42,7 +43,11 @@
           }
         }
       },
-      "block_order": ["line_1", "line_2", "line_3"],
+      "block_order": [
+        "line_1",
+        "line_2",
+        "line_3"
+      ],
       "settings": {
         "eyebrow": "Welcome to",
         "heading": "libersens",
@@ -52,6 +57,7 @@
     "featured_signature": {
       "type": "featured-product",
       "settings": {
+        "product": "she-bell",
         "eyebrow": "",
         "heading": "",
         "background_style": "default",
@@ -69,6 +75,7 @@
     "featured_curve": {
       "type": "featured-product",
       "settings": {
+        "product": "",
         "eyebrow": "",
         "heading": "",
         "background_style": "default",
@@ -151,7 +158,16 @@
           }
         }
       },
-      "block_order": ["slide_1", "slide_2", "slide_3", "slide_4", "slide_5", "slide_6", "slide_7", "slide_8"],
+      "block_order": [
+        "slide_1",
+        "slide_2",
+        "slide_3",
+        "slide_4",
+        "slide_5",
+        "slide_6",
+        "slide_7",
+        "slide_8"
+      ],
       "settings": {
         "heading": "Find us all on social media @libersens"
       }
@@ -159,6 +175,7 @@
     "products": {
       "type": "featured-collection",
       "settings": {
+        "collection": "",
         "eyebrow": "",
         "heading": "Your Libersens intimacy wardrobe.",
         "product_limit": 8,
@@ -169,6 +186,7 @@
     "accessories": {
       "type": "featured-collection",
       "settings": {
+        "collection": "",
         "eyebrow": "",
         "heading": "Libersens care accessories.",
         "product_limit": 8,
