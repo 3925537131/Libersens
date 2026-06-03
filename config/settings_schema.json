@@ -1,0 +1,73 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Libersens Atelier",
+    "theme_version": "1.0.0",
+    "theme_author": "OpenAI Codex",
+    "theme_documentation_url": "https://help.shopify.com/en/manual/online-store/themes",
+    "theme_support_url": "https://help.shopify.com/en"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "text",
+        "id": "brand_name",
+        "label": "Brand name",
+        "default": "libersens"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_ink",
+        "label": "Text",
+        "default": "#211d20"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background",
+        "default": "#fffaf7"
+      },
+      {
+        "type": "color",
+        "id": "color_surface",
+        "label": "Surface",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent",
+        "default": "#8a2447"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary",
+        "default": "#0e5b5f"
+      },
+      {
+        "type": "color",
+        "id": "color_header",
+        "label": "Header and footer",
+        "default": "#261b22"
+      },
+      {
+        "type": "color",
+        "id": "color_gold",
+        "label": "Highlight",
+        "default": "#c79b63"
+      }
+    ]
+  }
+]

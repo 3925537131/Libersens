@@ -1,0 +1,242 @@
+{
+  "sections": {
+    "slideshow": {
+      "type": "hero",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "text": "",
+        "primary_label": "DISCOVER LIBERSENS",
+        "primary_link": "/pages/best-sellers",
+        "secondary_label": ""
+      }
+    },
+    "welcome": {
+      "type": "rich-text",
+      "blocks": {
+        "line_1": {
+          "type": "line",
+          "settings": {
+            "text": "Built for private confidence"
+          }
+        },
+        "line_2": {
+          "type": "line",
+          "settings": {
+            "text": "Made for calm rituals"
+          }
+        },
+        "line_3": {
+          "type": "line",
+          "settings": {
+            "text": "Designed with discretion"
+          }
+        }
+      },
+      "block_order": ["line_1", "line_2", "line_3"],
+      "settings": {
+        "eyebrow": "Welcome to",
+        "heading": "libersens",
+        "text": ""
+      }
+    },
+    "featured_signature": {
+      "type": "featured-product",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "background_style": "default",
+        "placeholder_eyebrow": "Signature ritual",
+        "placeholder_title": "Lumé Classic",
+        "placeholder_price": "$99.00",
+        "placeholder_text": "Our signature soft-touch essential with whisper-quiet modes, intuitive controls, and a finish made for easy care.",
+        "placeholder_button_label": "Buy now",
+        "placeholder_button_link": "/pages/lume",
+        "feature_1": "Discreet packaging",
+        "feature_2": "Soft-touch body-safe finish",
+        "feature_3": "Travel-ready storage"
+      }
+    },
+    "featured_curve": {
+      "type": "featured-product",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "background_style": "default",
+        "placeholder_eyebrow": "Aura collection",
+        "placeholder_title": "Aura Wearable",
+        "placeholder_price": "$119.00",
+        "placeholder_text": "A discreet, hands-free wearable made for soft positioning, shared connection, and everyday confidence.",
+        "placeholder_button_label": "Buy now",
+        "placeholder_button_link": "/pages/aura",
+        "feature_1": "Gentle modes",
+        "feature_2": "Soft-touch curves",
+        "feature_3": "Simple controls"
+      }
+    },
+    "subscription": {
+      "type": "image-with-text",
+      "blocks": {
+        "point_1": {
+          "type": "point",
+          "settings": {
+            "text": "A curated edit of signature products and refined accessories."
+          }
+        },
+        "point_2": {
+          "type": "point",
+          "settings": {
+            "text": "Soft-touch finishes, quiet modes, and simple everyday care."
+          }
+        },
+        "point_3": {
+          "type": "point",
+          "settings": {
+            "text": "Designed for private storage, gifting, and travel."
+          }
+        }
+      },
+      "block_order": ["point_1", "point_2", "point_3"],
+      "settings": {
+        "image_position": "right",
+        "color_scheme": "dark",
+        "eyebrow": "Special collection",
+        "heading": "The Libersens Special Collection",
+        "text": "<p>A focused edit of our most refined intimacy essentials, made for calm rituals, discreet storage, and a beautifully simple routine.</p>",
+        "button_label": "View our special collection",
+        "button_link": "/pages/best-sellers"
+      }
+    },
+    "custom_product_image": {
+      "type": "image-banner",
+      "settings": {
+        "fallback_asset": "product-line",
+        "eyebrow": "",
+        "heading": "",
+        "text": "",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "custom_slider": {
+      "type": "image-slider",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "fallback_asset": "product-line",
+            "eyebrow": "",
+            "heading": ""
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "fallback_asset": "wearable",
+            "eyebrow": "",
+            "heading": ""
+          }
+        },
+        "slide_3": {
+          "type": "slide",
+          "settings": {
+            "fallback_asset": "lifestyle",
+            "eyebrow": "",
+            "heading": ""
+          }
+        },
+        "slide_4": {
+          "type": "slide",
+          "settings": {
+            "fallback_asset": "hero",
+            "eyebrow": "",
+            "heading": ""
+          }
+        },
+        "slide_5": {
+          "type": "slide",
+          "settings": {
+            "fallback_asset": "product-line",
+            "eyebrow": "",
+            "heading": ""
+          }
+        },
+        "slide_6": {
+          "type": "slide",
+          "settings": {
+            "fallback_asset": "wearable",
+            "eyebrow": "",
+            "heading": ""
+          }
+        },
+        "slide_7": {
+          "type": "slide",
+          "settings": {
+            "fallback_asset": "lifestyle",
+            "eyebrow": "",
+            "heading": ""
+          }
+        },
+        "slide_8": {
+          "type": "slide",
+          "settings": {
+            "fallback_asset": "hero",
+            "eyebrow": "",
+            "heading": ""
+          }
+        }
+      },
+      "block_order": ["slide_1", "slide_2", "slide_3", "slide_4", "slide_5", "slide_6", "slide_7", "slide_8"],
+      "settings": {}
+    },
+    "featured_bundle": {
+      "type": "featured-product",
+      "settings": {
+        "eyebrow": "The recommended choice",
+        "heading": "Designed for a calmer first ritual.",
+        "background_style": "default",
+        "placeholder_eyebrow": "Bundle",
+        "placeholder_title": "Libersens Endless Calm Bundle",
+        "placeholder_price": "$157.00",
+        "placeholder_text": "A curated bundle with a signature essential, travel pouch, compact charging dock, and care accessories.",
+        "placeholder_button_label": "Add to cart",
+        "placeholder_button_link": "/pages/best-sellers",
+        "feature_1": "Signature product plus care accessories",
+        "feature_2": "Private storage included",
+        "feature_3": "Ready for gifting or travel"
+      }
+    },
+    "products": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Your Libersens intimacy wardrobe.",
+        "product_limit": 8,
+        "placeholder_set": "products",
+        "button_label": "View all products"
+      }
+    },
+    "accessories": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Libersens care accessories.",
+        "product_limit": 8,
+        "placeholder_set": "accessories",
+        "button_label": "View accessories"
+      }
+    }
+  },
+  "order": [
+    "slideshow",
+    "welcome",
+    "featured_signature",
+    "featured_curve",
+    "subscription",
+    "custom_product_image",
+    "custom_slider",
+    "featured_bundle",
+    "products",
+    "accessories"
+  ]
+}

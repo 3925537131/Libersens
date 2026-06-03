@@ -1,0 +1,131 @@
+<header class="site-header">
+  {% if section.settings.announcement_text != blank %}
+    <a class="announcement-bar" href="{{ section.settings.announcement_link | default: routes.all_products_collection_url }}">
+      {{ section.settings.announcement_text }}
+    </a>
+  {% endif %}
+
+  <div class="container">
+    <div class="header-inner">
+      <a class="brand-wordmark" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+        {% if settings.logo != blank %}
+          <img class="brand-logo" src="{{ settings.logo | image_url: width: 320 }}" alt="{{ shop.name | escape }}" width="160" height="60">
+        {% else %}
+          {{ settings.brand_name | default: 'libersens' }}
+        {% endif %}
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <div class="nav-item nav-item--dropdown">
+          <a class="nav-link" href="/pages/lume" aria-haspopup="true">Lumé</a>
+          <div class="nav-dropdown" role="menu" aria-label="Lumé">
+            <a href="/pages/lume" role="menuitem">
+              <span>Lumé Classic</span>
+              <small>The signature soft-touch essential</small>
+            </a>
+            <a href="/pages/lume" role="menuitem">
+              <span>Lumé Curve</span>
+              <small>Sculpted form, gentle modes</small>
+            </a>
+            <a href="/pages/lume" role="menuitem">
+              <span>Lumé Pro</span>
+              <small>Deeper modes, refined controls</small>
+            </a>
+          </div>
+        </div>
+        <div class="nav-item nav-item--dropdown">
+          <a class="nav-link" href="/pages/aura" aria-haspopup="true">Aura</a>
+          <div class="nav-dropdown" role="menu" aria-label="Aura">
+            <a href="/pages/aura" role="menuitem">
+              <span>Aura Wearable</span>
+              <small>Discreet, hands-free comfort</small>
+            </a>
+            <a href="/pages/aura" role="menuitem">
+              <span>Aura Duo</span>
+              <small>Designed for shared connection</small>
+            </a>
+            <a href="/pages/aura" role="menuitem">
+              <span>Aura Remote</span>
+              <small>App and remote control</small>
+            </a>
+          </div>
+        </div>
+        <a class="nav-link" href="/pages/petite">Petite</a>
+        <a class="nav-link" href="/pages/best-sellers">Best sellers</a>
+        <a class="nav-link" href="/pages/accessories">Accessories</a>
+        <div class="nav-item nav-item--dropdown">
+          <a class="nav-link" href="/pages/user-guide" aria-haspopup="true">User guide</a>
+          <div class="nav-dropdown" role="menu" aria-label="User guide">
+            <a href="/pages/user-guide" role="menuitem">
+              <span>Care guide</span>
+              <small>Cleaning, charging, and storage</small>
+            </a>
+            <a href="/pages/faq" role="menuitem">
+              <span>FAQ</span>
+              <small>Shipping, privacy, and returns</small>
+            </a>
+            <a href="/pages/about-us" role="menuitem">
+              <span>About us</span>
+              <small>Our approach to intimacy care</small>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <a class="header-icon" href="{{ routes.search_url }}" aria-label="Search">
+          {% render 'icon', icon: 'search' %}
+        </a>
+        <a class="header-icon" href="{{ routes.account_login_url | default: '/account' }}" aria-label="Account">
+          {% render 'icon', icon: 'account' %}
+        </a>
+        <a class="header-icon" href="{{ routes.cart_url }}" aria-label="Cart">
+          {% render 'icon', icon: 'cart' %}
+          <span class="cart-count">{{ cart.item_count }}</span>
+        </a>
+      </div>
+
+      <details class="mobile-menu">
+        <summary class="header-icon" aria-label="Open navigation">
+          {% render 'icon', icon: 'menu' %}
+        </summary>
+        <nav class="mobile-menu-panel" aria-label="Mobile navigation">
+          <a href="/pages/lume">Lumé</a>
+          <a class="mobile-sub-link" href="/pages/lume">Lumé Classic</a>
+          <a class="mobile-sub-link" href="/pages/lume">Lumé Curve</a>
+          <a class="mobile-sub-link" href="/pages/lume">Lumé Pro</a>
+          <a href="/pages/aura">Aura</a>
+          <a class="mobile-sub-link" href="/pages/aura">Aura Wearable</a>
+          <a class="mobile-sub-link" href="/pages/aura">Aura Duo</a>
+          <a class="mobile-sub-link" href="/pages/aura">Aura Remote</a>
+          <a href="/pages/petite">Petite</a>
+          <a href="/pages/best-sellers">Best sellers</a>
+          <a href="/pages/accessories">Accessories</a>
+          <a href="/pages/user-guide">User guide</a>
+          <a class="mobile-sub-link" href="/pages/faq">FAQ</a>
+          <a href="/pages/about-us">About us</a>
+          <a href="/pages/contact">Contact</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement text",
+      "default": "Discreet shipping on every Libersens order"
+    },
+    {
+      "type": "url",
+      "id": "announcement_link",
+      "label": "Announcement link"
+    }
+  ]
+}
+{% endschema %}

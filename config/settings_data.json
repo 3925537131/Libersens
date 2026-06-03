@@ -1,0 +1,13 @@
+{
+  "current": {
+    "brand_name": "libersens",
+    "color_ink": "#211d20",
+    "color_background": "#fffaf7",
+    "color_surface": "#ffffff",
+    "color_accent": "#8a2447",
+    "color_secondary": "#0e5b5f",
+    "color_header": "#261b22",
+    "color_gold": "#c79b63"
+  },
+  "presets": {}
+}

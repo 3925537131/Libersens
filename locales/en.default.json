@@ -1,0 +1,10 @@
+{
+  "general": {
+    "search": {
+      "placeholder": "Search Libersens"
+    },
+    "cart": {
+      "empty": "Your cart is empty"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "sections": {
+    "showcase": {
+      "type": "page-showcase",
+      "blocks": {
+        "highlight_design": {
+          "type": "highlight",
+          "settings": {
+            "fallback_asset": "hero",
+            "label": "Design",
+            "title": "Objects you do not need to hide",
+            "text": "Libersens products are shaped to feel beautiful, private, and easy to keep in real living spaces.",
+            "price": "",
+            "button_label": "Our collection"
+          }
+        },
+        "highlight_privacy": {
+          "type": "highlight",
+          "settings": {
+            "fallback_asset": "lifestyle",
+            "label": "Privacy",
+            "title": "Discretion as a feature",
+            "text": "From shipping to storage, privacy is treated as part of the product experience.",
+            "price": "",
+            "button_label": "Learn more"
+          }
+        },
+        "highlight_education": {
+          "type": "highlight",
+          "settings": {
+            "fallback_asset": "wearable",
+            "label": "Education",
+            "title": "No awkward guessing",
+            "text": "We believe intimate products should come with clear, calm guidance and no shame.",
+            "price": "",
+            "button_label": "User guide"
+          }
+        },
+        "point_1": {
+          "type": "point",
+          "settings": {
+            "title": "Female-first tone",
+            "text": "The brand speaks with respect, softness, and practical confidence."
+          }
+        },
+        "point_2": {
+          "type": "point",
+          "settings": {
+            "title": "Premium without being cold",
+            "text": "The visual system uses refined product photography, warm color, and clear ecommerce structure."
+          }
+        },
+        "point_3": {
+          "type": "point",
+          "settings": {
+            "title": "Built for future catalog growth",
+            "text": "The theme can support product families, accessories, guides, and blog content as the brand develops."
+          }
+        }
+      },
+      "block_order": ["highlight_design", "highlight_privacy", "highlight_education", "point_1", "point_2", "point_3"],
+      "settings": {
+        "fallback_asset": "lifestyle",
+        "eyebrow": "About Libersens",
+        "heading": "Intimacy products for private confidence.",
+        "text": "Libersens is built around the idea that pleasure, care, and privacy can feel elegant and uncomplicated.",
+        "button_label": "Explore the collection",
+        "grid_eyebrow": "Brand pillars",
+        "grid_heading": "What Libersens stands for.",
+        "panel_eyebrow": "Our approach",
+        "panel_heading": "A softer way to shop intimacy.",
+        "panel_text": "<p>About pages for intimacy brands need to build trust quickly. This page introduces the brand, explains the design philosophy, and gives customers a reason to feel safe browsing further.</p>"
+      }
+    }
+  },
+  "order": ["showcase"]
+}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="{{ settings.color_header | default: '#261b22' }}">
+
+    <title>
+      {{ page_title }}
+      {% if current_tags %} &ndash; {{ current_tags | join: ', ' }}{% endif %}
+      {% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}
+      {% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    <link rel="canonical" href="{{ canonical_url }}">
+    {{ content_for_header }}
+
+    <style>
+      :root {
+        --color-ink: {{ settings.color_ink | default: '#211d20' }};
+        --color-background: {{ settings.color_background | default: '#fffaf7' }};
+        --color-surface: {{ settings.color_surface | default: '#ffffff' }};
+        --color-accent: {{ settings.color_accent | default: '#8a2447' }};
+        --color-secondary: {{ settings.color_secondary | default: '#0e5b5f' }};
+        --color-header: {{ settings.color_header | default: '#261b22' }};
+        --color-gold: {{ settings.color_gold | default: '#c79b63' }};
+      }
+    </style>
+
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#MainContent">Skip to content</a>
+    {% section 'header' %}
+    <main id="MainContent" role="main">
+      {{ content_for_layout }}
+    </main>
+    {% section 'footer' %}
+  </body>
+</html>

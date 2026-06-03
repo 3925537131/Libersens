@@ -1,0 +1,188 @@
+{% assign product = section.settings.product %}
+{% assign placeholder_images = 'libersens-product-line.png|libersens-product-wearable.png|libersens-lifestyle.png|libersens-hero.png' | split: '|' %}
+
+<section class="section featured-product featured-product--{{ section.settings.background_style | default: 'default' }}">
+  <div class="section__color-wrapper">
+    <div class="container">
+      {% if section.settings.eyebrow != blank or section.settings.heading != blank %}
+        <header class="section-heading section__header">
+          {% if section.settings.eyebrow != blank %}
+            <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+          {% endif %}
+          {% if section.settings.heading != blank %}
+            <h2>{{ section.settings.heading }}</h2>
+          {% endif %}
+        </header>
+      {% endif %}
+
+      <div class="featured-product__grid">
+        <div class="featured-product__media featured-gallery" data-featured-gallery>
+          <div class="featured-gallery__track" data-featured-gallery-track>
+            {% if product != blank and product.images.size > 0 %}
+              {% for image in product.images limit: 6 %}
+                <div class="featured-gallery__slide">
+                  <img src="{{ image | image_url: width: 1300 }}" alt="{{ image.alt | default: product.title | escape }}" loading="lazy" width="1300" height="1300">
+                </div>
+              {% endfor %}
+            {% else %}
+              {% for placeholder_image in placeholder_images %}
+                <div class="featured-gallery__slide">
+                  <img src="{{ placeholder_image | asset_url }}" alt="Libersens highlighted product placeholder" loading="lazy" width="1254" height="1254">
+                </div>
+              {% endfor %}
+            {% endif %}
+          </div>
+
+          <button class="featured-gallery__arrow featured-gallery__arrow--prev" type="button" data-featured-gallery-prev aria-label="Previous product image">&#8249;</button>
+          <button class="featured-gallery__arrow featured-gallery__arrow--next" type="button" data-featured-gallery-next aria-label="Next product image">&#8250;</button>
+          <div class="featured-gallery__dots" data-featured-gallery-dots></div>
+        </div>
+
+        <div class="featured-product__info">
+          {% if product != blank %}
+            <p class="eyebrow">{{ product.vendor }}</p>
+            <h3>{{ product.title }}</h3>
+            <div class="price">{{ product.price | money }}</div>
+            <div class="rte">{{ product.description | strip_html | truncatewords: 42 }}</div>
+            {% form 'product', product, class: 'product-form' %}
+              {% if product.has_only_default_variant %}
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+              {% else %}
+                <div class="field">
+                  <label for="FeaturedVariant-{{ section.id }}">Choose option</label>
+                  <select id="FeaturedVariant-{{ section.id }}" name="id">
+                    {% for variant in product.variants %}
+                      <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>
+                        {{ variant.title }} - {{ variant.price | money }}
+                      </option>
+                    {% endfor %}
+                  </select>
+                </div>
+              {% endif %}
+              <div class="field featured-product__quantity">
+                <label for="FeaturedQuantity-{{ section.id }}">Quantity</label>
+                <input id="FeaturedQuantity-{{ section.id }}" class="quantity-input" type="number" name="quantity" value="1" min="1">
+              </div>
+              <button class="button" type="submit" {% unless product.available %}disabled{% endunless %}>
+                {% if product.available %}Add to cart{% else %}Sold out{% endif %}
+              </button>
+            {% endform %}
+          {% else %}
+            {% if section.settings.placeholder_eyebrow != blank %}
+              <p class="eyebrow">{{ section.settings.placeholder_eyebrow }}</p>
+            {% endif %}
+            <h3>{{ section.settings.placeholder_title }}</h3>
+            <div class="price">{{ section.settings.placeholder_price }}</div>
+            <p>{{ section.settings.placeholder_text }}</p>
+            <a class="button" href="{{ section.settings.placeholder_button_link | default: routes.all_products_collection_url }}">{{ section.settings.placeholder_button_label }}</a>
+          {% endif %}
+
+          <ul class="featured-product__perks">
+            {% if section.settings.feature_1 != blank %}
+              <li>{{ section.settings.feature_1 }}</li>
+            {% endif %}
+            {% if section.settings.feature_2 != blank %}
+              <li>{{ section.settings.feature_2 }}</li>
+            {% endif %}
+            {% if section.settings.feature_3 != blank %}
+              <li>{{ section.settings.feature_3 }}</li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured product",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Recommended"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Start with the Libersens signature set."
+    },
+    {
+      "type": "select",
+      "id": "background_style",
+      "label": "Background",
+      "default": "default",
+      "options": [
+        { "value": "default", "label": "White" },
+        { "value": "muted", "label": "Muted" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "placeholder_eyebrow",
+      "label": "Placeholder eyebrow",
+      "default": "Featured ritual"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_title",
+      "label": "Placeholder title",
+      "default": "Libersens Signature Set"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_price",
+      "label": "Placeholder price",
+      "default": "$129.00"
+    },
+    {
+      "type": "textarea",
+      "id": "placeholder_text",
+      "label": "Placeholder text",
+      "default": "A soft-touch starter set with travel storage, quiet settings, and a finish made for easy care."
+    },
+    {
+      "type": "text",
+      "id": "placeholder_button_label",
+      "label": "Placeholder button label",
+      "default": "Shop highlighted product"
+    },
+    {
+      "type": "url",
+      "id": "placeholder_button_link",
+      "label": "Placeholder button link"
+    },
+    {
+      "type": "text",
+      "id": "feature_1",
+      "label": "Feature 1",
+      "default": "Discreet packaging"
+    },
+    {
+      "type": "text",
+      "id": "feature_2",
+      "label": "Feature 2",
+      "default": "Soft-touch body-safe finish"
+    },
+    {
+      "type": "text",
+      "id": "feature_3",
+      "label": "Feature 3",
+      "default": "Easy charging and storage"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured product"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,42 @@
+<section class="section">
+  <div class="container">
+    <div class="page-hero">
+      <p class="eyebrow">Journal</p>
+      <h1>{{ blog.title }}</h1>
+    </div>
+
+    {% paginate blog.articles by 12 %}
+      <div class="tile-grid">
+        {% for article in blog.articles %}
+          <article class="collection-card">
+            <a class="product-card__media" href="{{ article.url }}">
+              {% if article.image != blank %}
+                <img src="{{ article.image | image_url: width: 900 }}" alt="{{ article.image.alt | default: article.title | escape }}" loading="lazy" width="900" height="900">
+              {% else %}
+                <img src="{{ 'libersens-lifestyle.png' | asset_url }}" alt="{{ article.title | escape }}" loading="lazy" width="900" height="900">
+              {% endif %}
+            </a>
+            <div class="product-card__info">
+              <h3>{{ article.title }}</h3>
+              <p>{{ article.excerpt_or_content | strip_html | truncatewords: 22 }}</p>
+              <a class="link-text" href="{{ article.url }}">Read more</a>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      {% if paginate.pages > 1 %}
+        <nav class="pagination" role="navigation" aria-label="Pagination">
+          {{ paginate | default_pagination }}
+        </nav>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main blog",
+  "settings": []
+}
+{% endschema %}

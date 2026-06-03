@@ -1,0 +1,35 @@
+<section class="section">
+  <div class="container">
+    <div class="page-hero">
+      <p class="eyebrow">Collections</p>
+      <h1>Shop Libersens</h1>
+    </div>
+
+    <div class="tile-grid">
+      {% for collection in collections %}
+        {% unless collection.handle == 'frontpage' %}
+          <article class="collection-card">
+            <a class="product-card__media" href="{{ collection.url }}">
+              {% if collection.featured_image != blank %}
+                <img src="{{ collection.featured_image | image_url: width: 900 }}" alt="{{ collection.featured_image.alt | default: collection.title | escape }}" loading="lazy" width="900" height="900">
+              {% else %}
+                <img src="{{ 'libersens-product-line.png' | asset_url }}" alt="{{ collection.title | escape }}" loading="lazy" width="900" height="900">
+              {% endif %}
+            </a>
+            <div class="product-card__info">
+              <h3>{{ collection.title }}</h3>
+              <a class="link-text" href="{{ collection.url }}">View collection</a>
+            </div>
+          </article>
+        {% endunless %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main list collections",
+  "settings": []
+}
+{% endschema %}

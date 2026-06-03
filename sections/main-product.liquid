@@ -1,0 +1,97 @@
+<section class="section">
+  <div class="container">
+    {% if product != blank %}
+      <div class="product-page">
+        <div class="product-gallery">
+          <div class="product-gallery__main">
+            {% if product.featured_image != blank %}
+              <img
+                data-gallery-main
+                src="{{ product.featured_image | image_url: width: 1400 }}"
+                alt="{{ product.featured_image.alt | default: product.title | escape }}"
+                width="1400"
+                height="1400"
+              >
+            {% else %}
+              <img data-gallery-main src="{{ 'libersens-product-line.png' | asset_url }}" alt="{{ product.title | escape }}" width="1200" height="1200">
+            {% endif %}
+          </div>
+
+          {% if product.media.size > 1 %}
+            <div class="product-thumbs">
+              {% for media in product.media limit: 4 %}
+                {% assign preview_image = media.preview_image %}
+                {% if preview_image == blank and media.media_type == 'image' %}
+                  {% assign preview_image = media %}
+                {% endif %}
+                <button type="button" class="product-thumb" aria-label="View {{ media.alt | default: product.title | escape }}">
+                  {% if preview_image != blank %}
+                    <img
+                      data-gallery-thumb
+                      data-gallery-full="{{ preview_image | image_url: width: 1400 }}"
+                      src="{{ preview_image | image_url: width: 240 }}"
+                      alt="{{ media.alt | default: product.title | escape }}"
+                      width="240"
+                      height="240"
+                    >
+                  {% endif %}
+                </button>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="featured-product__info">
+          {% if product.vendor != blank %}
+            <p class="eyebrow">{{ product.vendor }}</p>
+          {% endif %}
+          <h1>{{ product.title }}</h1>
+          <div class="price">{{ product.selected_or_first_available_variant.price | money }}</div>
+
+          {% form 'product', product, class: 'product-form' %}
+            {% if product.variants.size > 1 %}
+              <div class="field">
+                <label for="ProductVariant-{{ section.id }}">Choose option</label>
+                <select id="ProductVariant-{{ section.id }}" name="id">
+                  {% for variant in product.variants %}
+                    <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>
+                      {{ variant.title }} - {{ variant.price | money }}
+                    </option>
+                  {% endfor %}
+                </select>
+              </div>
+            {% else %}
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            {% endif %}
+
+            <div class="field">
+              <label for="Quantity-{{ section.id }}">Quantity</label>
+              <input class="quantity-input" id="Quantity-{{ section.id }}" type="number" name="quantity" min="1" value="1">
+            </div>
+
+            <button class="button" type="submit" {% unless product.available %}disabled{% endunless %}>
+              {% if product.available %}Add to cart{% else %}Sold out{% endif %}
+            </button>
+            {{ form | payment_button }}
+          {% endform %}
+
+          {% if product.description != blank %}
+            <div class="rte">{{ product.description }}</div>
+          {% endif %}
+        </div>
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <h1>Product unavailable</h1>
+        <p>This product is not available right now.</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main product",
+  "settings": []
+}
+{% endschema %}

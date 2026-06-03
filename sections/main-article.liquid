@@ -1,0 +1,25 @@
+<article class="section">
+  <div class="container">
+    <div class="page-hero">
+      <p class="eyebrow">{{ blog.title }}</p>
+      <h1>{{ article.title }}</h1>
+    </div>
+
+    {% if article.image != blank %}
+      <div class="split-feature__media" style="margin-bottom: 32px;">
+        <img src="{{ article.image | image_url: width: 1600 }}" alt="{{ article.image.alt | default: article.title | escape }}" width="1600" height="900">
+      </div>
+    {% endif %}
+
+    <div class="rte">
+      {{ article.content }}
+    </div>
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "Main article",
+  "settings": []
+}
+{% endschema %}

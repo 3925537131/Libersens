@@ -1,0 +1,84 @@
+{
+  "sections": {
+    "showcase": {
+      "type": "page-showcase",
+      "blocks": {
+        "highlight_start": {
+          "type": "highlight",
+          "settings": {
+            "fallback_asset": "hero",
+            "label": "Start",
+            "title": "First-use guide",
+            "text": "A gentle introduction to charging, cleaning, choosing settings, and storing products privately.",
+            "price": "",
+            "button_label": "Read guide"
+          }
+        },
+        "highlight_care": {
+          "type": "highlight",
+          "settings": {
+            "fallback_asset": "lifestyle",
+            "label": "Care",
+            "title": "Cleaning and storage",
+            "text": "Simple habits that keep products fresh, comfortable, and ready for the next ritual.",
+            "price": "",
+            "button_label": "Read guide"
+          }
+        },
+        "highlight_comfort": {
+          "type": "highlight",
+          "settings": {
+            "fallback_asset": "wearable",
+            "label": "Comfort",
+            "title": "Finding your settings",
+            "text": "How to start low, move slowly, and make the experience feel personal without pressure.",
+            "price": "",
+            "button_label": "Read guide"
+          }
+        },
+        "point_1": {
+          "type": "point",
+          "settings": {
+            "title": "Charge fully before first use",
+            "text": "Use the included cable or base until the indicator confirms a full charge."
+          }
+        },
+        "point_2": {
+          "type": "point",
+          "settings": {
+            "title": "Clean before and after use",
+            "text": "Use warm water where appropriate, a gentle compatible cleanser, and allow products to dry fully before storage."
+          }
+        },
+        "point_3": {
+          "type": "point",
+          "settings": {
+            "title": "Start with the gentlest setting",
+            "text": "Move slowly through modes and pressure levels so the product feels like part of your rhythm."
+          }
+        },
+        "point_4": {
+          "type": "point",
+          "settings": {
+            "title": "Store separately",
+            "text": "Keep products in their pouch or case, away from lint, sharp objects, and direct heat."
+          }
+        }
+      },
+      "block_order": ["highlight_start", "highlight_care", "highlight_comfort", "point_1", "point_2", "point_3", "point_4"],
+      "settings": {
+        "fallback_asset": "hero",
+        "eyebrow": "User guide",
+        "heading": "A calm guide to care, comfort, and confidence.",
+        "text": "Simple, respectful guidance for using Libersens products safely, privately, and with ease.",
+        "button_label": "Shop essentials",
+        "grid_eyebrow": "Guides",
+        "grid_heading": "Helpful pages for the questions customers naturally ask.",
+        "panel_eyebrow": "Quick start",
+        "panel_heading": "Make the first experience feel easy.",
+        "panel_text": "<p>The user guide page follows the reference site's practical support structure: clear guide cards followed by actionable steps. You can later expand this into FAQ, care charts, and product-specific instructions.</p>"
+      }
+    }
+  },
+  "order": ["showcase"]
+}

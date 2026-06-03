@@ -1,0 +1,51 @@
+<section class="section">
+  <div class="container">
+    <div class="page-hero">
+      <p class="eyebrow">Search</p>
+      <h1>Find your ritual</h1>
+    </div>
+
+    <form class="search-form" action="{{ routes.search_url }}" method="get" role="search">
+      <div class="field">
+        <label for="SearchInput">Search</label>
+        <input id="SearchInput" class="search-input" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products">
+      </div>
+      <button class="button" type="submit">Search</button>
+    </form>
+
+    {% if search.performed %}
+      <div class="section-heading" style="margin-top: 42px;">
+        <p class="eyebrow">{{ search.results_count }} results</p>
+        <h2>{{ search.terms }}</h2>
+      </div>
+
+      {% paginate search.results by 24 %}
+        <div class="product-grid">
+          {% for item in search.results %}
+            {% if item.object_type == 'product' %}
+              {% render 'product-card', product: item, placeholder_index: forloop.index0 %}
+            {% else %}
+              <article class="search-card" style="padding: 18px;">
+                <a class="product-card__title" href="{{ item.url }}">{{ item.title }}</a>
+                <p>{{ item.content | strip_html | truncatewords: 24 }}</p>
+              </article>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        {% if paginate.pages > 1 %}
+          <nav class="pagination" role="navigation" aria-label="Pagination">
+            {{ paginate | default_pagination }}
+          </nav>
+        {% endif %}
+      {% endpaginate %}
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main search",
+  "settings": []
+}
+{% endschema %}

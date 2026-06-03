@@ -1,0 +1,137 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid footer-grid--reference">
+      <div class="footer-brand">
+        <h2>{{ settings.brand_name | default: 'libersens' }}</h2>
+        <p>{{ section.settings.brand_text }}</p>
+        <div class="footer-social" aria-label="Social links">
+          <a href="{{ section.settings.instagram_url | default: '#' }}" aria-label="Instagram">IG</a>
+          <a href="{{ section.settings.tiktok_url | default: '#' }}" aria-label="TikTok">TT</a>
+          <a href="{{ section.settings.youtube_url | default: '#' }}" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>{{ section.settings.links_heading }}</h3>
+        <div class="footer-links">
+          {% assign footer_menu = section.settings.footer_menu %}
+          {% if footer_menu != blank and linklists[footer_menu].links.size > 0 %}
+            {% for link in linklists[footer_menu].links %}
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            {% endfor %}
+          {% else %}
+            <a href="/pages/about-us">About us</a>
+            <a href="/pages/contact">Contact</a>
+            <a href="/pages/faq">FAQ</a>
+            <a href="/pages/refund-policy">Refund policy</a>
+            <a href="/pages/shipping-policy">Shipping policy</a>
+            <a href="/pages/subscription-terms">Subscription terms</a>
+            <a href="/pages/terms-of-service">Terms of service</a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>{{ section.settings.newsletter_heading }}</h3>
+        <p>{{ section.settings.newsletter_text }}</p>
+        {% form 'customer', id: 'FooterNewsletter', class: 'newsletter-form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="newsletter-row">
+            <input class="newsletter-input" type="email" name="contact[email]" aria-label="Email address" placeholder="Email address" required>
+            <button class="button" type="submit">Join</button>
+          </div>
+          {% if form.posted_successfully? %}
+            <p>Thanks for joining us.</p>
+          {% endif %}
+        {% endform %}
+      </div>
+
+      <div class="footer-col footer-contact">
+        <h3>{{ section.settings.contact_heading }}</h3>
+        <p><strong>Email:</strong> {{ section.settings.contact_email }}</p>
+        <p><strong>Hours:</strong> {{ section.settings.contact_hours }}</p>
+        <p><strong>Privacy:</strong> discreet support and packaging on every order.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</span>
+      <div class="payment-methods" aria-label="Accepted payment methods">
+        <span>Visa</span>
+        <span>Mastercard</span>
+        <span>Amex</span>
+        <span>Shop Pay</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "brand_text",
+      "label": "Brand text",
+      "default": "Intimacy products designed for privacy, softness, and a more confident relationship with your own pleasure."
+    },
+    {
+      "type": "text",
+      "id": "links_heading",
+      "label": "Links heading",
+      "default": "Information"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu",
+      "label": "Footer menu"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Newsletter heading",
+      "default": "Private Notes"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_text",
+      "label": "Newsletter text",
+      "default": "Product care, intimacy education, and quiet launches sent with care."
+    },
+    {
+      "type": "text",
+      "id": "contact_heading",
+      "label": "Contact heading",
+      "default": "Contact us"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Contact email",
+      "default": "hello@libersens.com"
+    },
+    {
+      "type": "text",
+      "id": "contact_hours",
+      "label": "Contact hours",
+      "default": "Monday to Friday, 10:00 to 18:00"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "TikTok URL"
+    },
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "YouTube URL"
+    }
+  ]
+}
+{% endschema %}
