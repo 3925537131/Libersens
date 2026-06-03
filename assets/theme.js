@@ -1,6 +1,17 @@
 document.documentElement.classList.remove('no-js');
 document.documentElement.classList.add('js');
 
+// Expose the live header height so the hero can fill exactly from the
+// base of the (sticky) header down to the bottom of the viewport.
+const setHeaderHeight = () => {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+};
+setHeaderHeight();
+window.addEventListener('resize', setHeaderHeight);
+window.addEventListener('load', setHeaderHeight);
+
 document.addEventListener('click', (event) => {
   const openMenu = document.querySelector('.mobile-menu[open]');
   if (!openMenu) return;

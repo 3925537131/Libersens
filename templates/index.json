@@ -74,50 +74,6 @@
         "feature_3": "Simple controls"
       }
     },
-    "subscription": {
-      "type": "image-with-text",
-      "blocks": {
-        "point_1": {
-          "type": "point",
-          "settings": {
-            "text": "A curated edit of signature products and refined accessories."
-          }
-        },
-        "point_2": {
-          "type": "point",
-          "settings": {
-            "text": "Soft-touch finishes, quiet modes, and simple everyday care."
-          }
-        },
-        "point_3": {
-          "type": "point",
-          "settings": {
-            "text": "Designed for private storage, gifting, and travel."
-          }
-        }
-      },
-      "block_order": ["point_1", "point_2", "point_3"],
-      "settings": {
-        "image_position": "right",
-        "color_scheme": "dark",
-        "eyebrow": "Special collection",
-        "heading": "The Libersens Special Collection",
-        "text": "<p>A focused edit of our most refined intimacy essentials, made for calm rituals, discreet storage, and a beautifully simple routine.</p>",
-        "button_label": "View our special collection",
-        "button_link": "/pages/best-sellers"
-      }
-    },
-    "custom_product_image": {
-      "type": "image-banner",
-      "settings": {
-        "fallback_asset": "product-line",
-        "eyebrow": "",
-        "heading": "",
-        "text": "",
-        "button_label": "",
-        "button_link": ""
-      }
-    },
     "custom_slider": {
       "type": "image-slider",
       "blocks": {
@@ -189,23 +145,6 @@
       "block_order": ["slide_1", "slide_2", "slide_3", "slide_4", "slide_5", "slide_6", "slide_7", "slide_8"],
       "settings": {}
     },
-    "featured_bundle": {
-      "type": "featured-product",
-      "settings": {
-        "eyebrow": "The recommended choice",
-        "heading": "Designed for a calmer first ritual.",
-        "background_style": "default",
-        "placeholder_eyebrow": "Bundle",
-        "placeholder_title": "Libersens Endless Calm Bundle",
-        "placeholder_price": "$157.00",
-        "placeholder_text": "A curated bundle with a signature essential, travel pouch, compact charging dock, and care accessories.",
-        "placeholder_button_label": "Add to cart",
-        "placeholder_button_link": "/pages/best-sellers",
-        "feature_1": "Signature product plus care accessories",
-        "feature_2": "Private storage included",
-        "feature_3": "Ready for gifting or travel"
-      }
-    },
     "products": {
       "type": "featured-collection",
       "settings": {
@@ -232,10 +171,7 @@
     "welcome",
     "featured_signature",
     "featured_curve",
-    "subscription",
-    "custom_product_image",
     "custom_slider",
-    "featured_bundle",
     "products",
     "accessories"
   ]
