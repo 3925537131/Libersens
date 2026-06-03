@@ -164,6 +164,16 @@
         "placeholder_set": "accessories",
         "button_label": "View accessories"
       }
+    },
+    "community_banner": {
+      "type": "community-banner",
+      "settings": {
+        "heading_line_1": "Let's build",
+        "heading_line_2": "The Libersens community",
+        "heading_line_3": "together",
+        "button_label": "Join the community",
+        "button_link": "/pages/about-us"
+      }
     }
   },
   "order": [
@@ -173,6 +183,7 @@
     "featured_curve",
     "custom_slider",
     "products",
-    "accessories"
+    "accessories",
+    "community_banner"
   ]
 }
