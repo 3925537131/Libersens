@@ -27,7 +27,25 @@ document.querySelectorAll('[data-gallery-thumb]').forEach((thumb) => {
 
     target.src = thumb.dataset.galleryFull;
     target.alt = thumb.alt;
+
+    document.querySelectorAll('.product-thumb').forEach((btn) => btn.classList.remove('is-active'));
+    thumb.closest('.product-thumb')?.classList.add('is-active');
   });
+});
+
+document.querySelectorAll('[data-quantity-selector]').forEach((selector) => {
+  const input = selector.querySelector('[data-quantity-input]');
+  if (!input) return;
+
+  const step = (delta) => {
+    const min = parseInt(input.min, 10) || 1;
+    const next = (parseInt(input.value, 10) || min) + delta;
+    input.value = Math.max(min, next);
+    input.dispatchEvent(new Event('change', { bubbles: true }));
+  };
+
+  selector.querySelector('[data-quantity-minus]')?.addEventListener('click', () => step(-1));
+  selector.querySelector('[data-quantity-plus]')?.addEventListener('click', () => step(1));
 });
 
 document.querySelectorAll('[data-slider]').forEach((slider) => {

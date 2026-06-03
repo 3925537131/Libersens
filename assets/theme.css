@@ -1732,14 +1732,17 @@ p {
 
 /* Reference structure pass */
 .site-header {
-  background: #2596be;
+  background: var(--color-accent);
+}
+
+/* Sticky header: the Shopify section wrapper must be the sticky element.
+   Making only the inner .site-header sticky fails because its containing
+   block (#shopify-section-header) is exactly as tall as the header, leaving
+   it no range to stick within. */
+#shopify-section-header {
   position: sticky;
   top: 0;
   z-index: 60;
-}
-
-.announcement-bar {
-  background: #2596be;
 }
 
 .brand-wordmark {
@@ -1767,7 +1770,7 @@ p {
 }
 
 .hero--minimal .hero__actions .button {
-  background: #2596be;
+  background: var(--color-accent);
   width: min(420px, calc(100vw - 56px));
   min-height: 60px;
   border-radius: 0;
@@ -2376,4 +2379,175 @@ p {
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+/* Image slider heading ("find us on social media") */
+.slider-section__header {
+  padding-top: clamp(36px, 5vw, 64px);
+  margin-bottom: 22px;
+  text-align: center;
+  justify-items: center;
+}
+
+/* Standardised product page */
+.product-gallery {
+  display: grid;
+  gap: 14px;
+  align-items: start;
+}
+
+.product-gallery:has(.product-thumbs) {
+  grid-template-columns: 76px minmax(0, 1fr);
+}
+
+.product-thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-thumb {
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 160ms ease;
+}
+
+.product-thumb.is-active,
+.product-thumb:hover {
+  border-color: var(--color-accent);
+}
+
+.product-info {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.product-info__title {
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.product-info__price {
+  color: var(--color-ink);
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+}
+
+.product-info__divider {
+  width: 100%;
+  height: 0;
+  margin: 2px 0;
+  border: 0;
+  border-top: 1px solid rgba(33, 29, 32, 0.14);
+}
+
+.product-info__quantity {
+  display: grid;
+  gap: 8px;
+}
+
+.product-info__quantity > label {
+  font-weight: 700;
+}
+
+.quantity-selector {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  border: 1px solid rgba(33, 29, 32, 0.22);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.quantity-selector__btn {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 50px;
+  border: 0;
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.quantity-selector__btn:hover {
+  background: rgba(33, 29, 32, 0.06);
+}
+
+.quantity-selector .quantity-input {
+  width: 58px;
+  min-height: 50px;
+  border: 0;
+  border-left: 1px solid rgba(33, 29, 32, 0.16);
+  border-right: 1px solid rgba(33, 29, 32, 0.16);
+  border-radius: 0;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+
+.quantity-selector .quantity-input::-webkit-outer-spin-button,
+.quantity-selector .quantity-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.button--full {
+  width: 100%;
+}
+
+.product-info__add {
+  min-height: 54px;
+}
+
+.product-share {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.product-share__label {
+  font-weight: 700;
+}
+
+.product-share__link {
+  display: inline-grid;
+  place-items: center;
+  color: rgba(33, 29, 32, 0.58);
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.product-share__link:hover {
+  color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.product-info__description {
+  margin-top: 6px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(33, 29, 32, 0.14);
+}
+
+@media (max-width: 640px) {
+  .product-gallery:has(.product-thumbs) {
+    grid-template-columns: 1fr;
+  }
+
+  .product-gallery__main {
+    order: -1;
+  }
+
+  .product-thumbs {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .product-thumbs img {
+    width: 64px;
+  }
 }

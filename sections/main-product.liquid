@@ -1,30 +1,17 @@
 <section class="section">
   <div class="container">
     {% if product != blank %}
+      {% assign current_variant = product.selected_or_first_available_variant %}
       <div class="product-page">
         <div class="product-gallery">
-          <div class="product-gallery__main">
-            {% if product.featured_image != blank %}
-              <img
-                data-gallery-main
-                src="{{ product.featured_image | image_url: width: 1400 }}"
-                alt="{{ product.featured_image.alt | default: product.title | escape }}"
-                width="1400"
-                height="1400"
-              >
-            {% else %}
-              <img data-gallery-main src="{{ 'libersens-product-line.png' | asset_url }}" alt="{{ product.title | escape }}" width="1200" height="1200">
-            {% endif %}
-          </div>
-
           {% if product.media.size > 1 %}
             <div class="product-thumbs">
-              {% for media in product.media limit: 4 %}
+              {% for media in product.media limit: 9 %}
                 {% assign preview_image = media.preview_image %}
                 {% if preview_image == blank and media.media_type == 'image' %}
                   {% assign preview_image = media %}
                 {% endif %}
-                <button type="button" class="product-thumb" aria-label="View {{ media.alt | default: product.title | escape }}">
+                <button type="button" class="product-thumb{% if forloop.first %} is-active{% endif %}" aria-label="View {{ media.alt | default: product.title | escape }}">
                   {% if preview_image != blank %}
                     <img
                       data-gallery-thumb
@@ -39,44 +26,92 @@
               {% endfor %}
             </div>
           {% endif %}
+
+          <div class="product-gallery__main">
+            {% if product.featured_image != blank %}
+              <img
+                data-gallery-main
+                src="{{ product.featured_image | image_url: width: 1400 }}"
+                alt="{{ product.featured_image.alt | default: product.title | escape }}"
+                width="1400"
+                height="1400"
+              >
+            {% else %}
+              <img data-gallery-main src="{{ 'libersens-product-line.png' | asset_url }}" alt="{{ product.title | escape }}" width="1200" height="1200">
+            {% endif %}
+          </div>
         </div>
 
-        <div class="featured-product__info">
+        <div class="product-info">
           {% if product.vendor != blank %}
             <p class="eyebrow">{{ product.vendor }}</p>
           {% endif %}
-          <h1>{{ product.title }}</h1>
-          <div class="price">{{ product.selected_or_first_available_variant.price | money }}</div>
+          <h1 class="product-info__title">{{ product.title }}</h1>
+          <div class="price product-info__price">
+            {{ current_variant.price | money }}
+            {% if current_variant.compare_at_price > current_variant.price %}
+              <span class="compare-price">{{ current_variant.compare_at_price | money }}</span>
+            {% endif %}
+          </div>
+
+          <hr class="product-info__divider">
 
           {% form 'product', product, class: 'product-form' %}
-            {% if product.variants.size > 1 %}
-              <div class="field">
-                <label for="ProductVariant-{{ section.id }}">Choose option</label>
+            {% unless product.has_only_default_variant %}
+              <div class="field product-info__options">
+                <label for="ProductVariant-{{ section.id }}">Options</label>
                 <select id="ProductVariant-{{ section.id }}" name="id">
                   {% for variant in product.variants %}
-                    <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>
+                    <option value="{{ variant.id }}" {% if variant == current_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>
                       {{ variant.title }} - {{ variant.price | money }}
                     </option>
                   {% endfor %}
                 </select>
               </div>
             {% else %}
-              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-            {% endif %}
+              <input type="hidden" name="id" value="{{ current_variant.id }}">
+            {% endunless %}
 
-            <div class="field">
-              <label for="Quantity-{{ section.id }}">Quantity</label>
-              <input class="quantity-input" id="Quantity-{{ section.id }}" type="number" name="quantity" min="1" value="1">
+            <div class="product-info__quantity">
+              <label for="Quantity-{{ section.id }}">Quantity:</label>
+              <div class="quantity-selector" data-quantity-selector>
+                <button type="button" class="quantity-selector__btn" data-quantity-minus aria-label="Decrease quantity">
+                  {% render 'icon', icon: 'minus' %}
+                </button>
+                <input class="quantity-input" id="Quantity-{{ section.id }}" type="number" name="quantity" min="1" value="1" data-quantity-input>
+                <button type="button" class="quantity-selector__btn" data-quantity-plus aria-label="Increase quantity">
+                  {% render 'icon', icon: 'plus' %}
+                </button>
+              </div>
             </div>
 
-            <button class="button" type="submit" {% unless product.available %}disabled{% endunless %}>
+            <button class="button button--full product-info__add" type="submit" {% unless product.available %}disabled{% endunless %}>
               {% if product.available %}Add to cart{% else %}Sold out{% endif %}
             </button>
+
             {{ form | payment_button }}
           {% endform %}
 
+          {% assign share_url = product.url | prepend: shop.url %}
+          {% assign share_text = product.title | url_encode %}
+          <div class="product-share">
+            <span class="product-share__label">Share</span>
+            <a class="product-share__link" href="https://www.facebook.com/sharer.php?u={{ share_url | url_encode }}" target="_blank" rel="noopener" aria-label="Share on Facebook">
+              {% render 'icon', icon: 'facebook' %}
+            </a>
+            <a class="product-share__link" href="https://pinterest.com/pin/create/button/?url={{ share_url | url_encode }}&media={{ product.featured_image | image_url: width: 1200 | url_encode }}&description={{ share_text }}" target="_blank" rel="noopener" aria-label="Pin on Pinterest">
+              {% render 'icon', icon: 'pinterest' %}
+            </a>
+            <a class="product-share__link" href="https://twitter.com/intent/tweet?url={{ share_url | url_encode }}&text={{ share_text }}" target="_blank" rel="noopener" aria-label="Share on X">
+              {% render 'icon', icon: 'twitter' %}
+            </a>
+            <a class="product-share__link" href="https://t.me/share/url?url={{ share_url | url_encode }}&text={{ share_text }}" target="_blank" rel="noopener" aria-label="Share on Telegram">
+              {% render 'icon', icon: 'telegram' %}
+            </a>
+          </div>
+
           {% if product.description != blank %}
-            <div class="rte">{{ product.description }}</div>
+            <div class="rte product-info__description">{{ product.description }}</div>
           {% endif %}
         </div>
       </div>

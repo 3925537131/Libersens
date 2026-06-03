@@ -143,7 +143,9 @@
         }
       },
       "block_order": ["slide_1", "slide_2", "slide_3", "slide_4", "slide_5", "slide_6", "slide_7", "slide_8"],
-      "settings": {}
+      "settings": {
+        "heading": "Find us all on social media @libersens"
+      }
     },
     "products": {
       "type": "featured-collection",
