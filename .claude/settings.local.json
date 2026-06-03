@@ -1,7 +1,17 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python3 -m json.tool templates/index.json)"
+      "Bash(python3 -m json.tool templates/index.json)",
+      "Bash(git checkout *)",
+      "Bash(git merge *)",
+      "Bash(git branch *)",
+      "Bash(git ls-tree *)",
+      "Bash(git fetch *)",
+      "Bash(python3 -c \"import sys,json; print\\(json.load\\(sys.stdin\\)['order']\\)\")",
+      "Bash(git stash *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }
