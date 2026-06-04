@@ -178,7 +178,7 @@
       "settings": {
         "collection": "frontpage",
         "eyebrow": "",
-        "heading": "Your Libersens intimacy wardrobe.",
+        "heading": "Our collection",
         "product_limit": 8,
         "placeholder_set": "products",
         "button_label": "View all products"
@@ -189,7 +189,7 @@
       "settings": {
         "collection": "accessories",
         "eyebrow": "",
-        "heading": "Libersens care accessories.",
+        "heading": "Accessories",
         "product_limit": 8,
         "placeholder_set": "accessories",
         "button_label": "View accessories"
@@ -199,9 +199,9 @@
       "type": "featured-collection",
       "name": "Featured collection",
       "settings": {
-        "collection": "",
-        "eyebrow": "Best sellers",
-        "heading": "Customer-loved intimacy essentials.",
+        "collection": "best-sellers",
+        "eyebrow": "",
+        "heading": "Best Sellers",
         "product_limit": 4,
         "placeholder_set": "products",
         "button_label": "View collection"
