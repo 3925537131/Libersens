@@ -75,19 +75,19 @@
     "featured_curve": {
       "type": "featured-product",
       "settings": {
-        "product": "",
+        "product": "she-bell-2",
         "eyebrow": "",
         "heading": "",
         "background_style": "default",
-        "placeholder_eyebrow": "Aura collection",
-        "placeholder_title": "Aura Wearable",
+        "placeholder_eyebrow": "She Bell",
+        "placeholder_title": "She Bell",
         "placeholder_price": "$119.00",
         "placeholder_text": "A discreet, hands-free wearable made for soft positioning, shared connection, and everyday confidence.",
         "placeholder_button_label": "Buy now",
-        "placeholder_button_link": "/pages/aura",
-        "feature_1": "Gentle modes",
-        "feature_2": "Soft-touch curves",
-        "feature_3": "Simple controls"
+        "placeholder_button_link": "shopify://products/she-bell-2",
+        "feature_1": "",
+        "feature_2": "",
+        "feature_3": ""
       }
     },
     "custom_slider": {
