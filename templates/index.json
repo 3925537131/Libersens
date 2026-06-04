@@ -195,6 +195,18 @@
         "button_label": "View accessories"
       }
     },
+    "featured_collection_KNEJ7K": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "collection": "",
+        "eyebrow": "Best sellers",
+        "heading": "Customer-loved intimacy essentials.",
+        "product_limit": 4,
+        "placeholder_set": "products",
+        "button_label": "View collection"
+      }
+    },
     "community_banner": {
       "type": "community-banner",
       "settings": {
@@ -214,6 +226,7 @@
     "custom_slider",
     "products",
     "accessories",
+    "featured_collection_KNEJ7K",
     "community_banner"
   ]
 }
