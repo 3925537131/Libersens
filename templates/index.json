@@ -187,7 +187,7 @@
     "accessories": {
       "type": "featured-collection",
       "settings": {
-        "collection": "",
+        "collection": "accessories",
         "eyebrow": "",
         "heading": "Libersens care accessories.",
         "product_limit": 8,
