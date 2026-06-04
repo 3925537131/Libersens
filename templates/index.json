@@ -57,19 +57,19 @@
     "featured_signature": {
       "type": "featured-product",
       "settings": {
-        "product": "she-bell",
+        "product": "she-bell-2",
         "eyebrow": "",
         "heading": "",
         "background_style": "default",
-        "placeholder_eyebrow": "Signature ritual",
-        "placeholder_title": "Lumé Classic",
-        "placeholder_price": "$99.00",
+        "placeholder_eyebrow": "",
+        "placeholder_title": "",
+        "placeholder_price": "",
         "placeholder_text": "Our signature soft-touch essential with whisper-quiet modes, intuitive controls, and a finish made for easy care.",
-        "placeholder_button_label": "Buy now",
-        "placeholder_button_link": "/pages/lume",
-        "feature_1": "Discreet packaging",
-        "feature_2": "Soft-touch body-safe finish",
-        "feature_3": "Travel-ready storage"
+        "placeholder_button_label": "Add to cart",
+        "placeholder_button_link": "shopify://products/she-bell-2",
+        "feature_1": "",
+        "feature_2": "",
+        "feature_3": ""
       }
     },
     "featured_curve": {
